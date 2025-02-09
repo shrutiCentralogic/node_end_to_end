@@ -1,0 +1,21 @@
+1️⃣ User Authentication (JWT)
+POST /auth/register → Register new users
+POST /auth/login → Authenticate and return token
+2️⃣ Portfolio Projects
+POST /projects → Add a new project
+GET /projects → Get all projects
+GET /projects/:id → Get a specific project
+PUT /projects/:id → Update a project
+DELETE /projects/:id → Delete a project
+3️⃣ Work Experience
+POST /experience → Add work experience
+GET /experience → Get work experience
+PUT /experience/:id → Update experience
+DELETE /experience/:id → Remove experience
+4️⃣ Skills
+POST /skills → Add a skill
+GET /skills → Get skills list
+DELETE /skills/:id → Remove a skill
+5️⃣ Contact Form
+POST /contact → Save contact messages
+GET /contact → View messages (Admin only)

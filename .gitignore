@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Output directories for TypeScript and other build files
+dist/
+build/
+
+# Logs
+*.log
+
+# Environment variables file (ensure not to commit sensitive data)
+.env
+
+# Optional: npm package-lock file if you're not interested in tracking it
+# package-lock.json
+
+# VSCode settings (if you use VSCode)
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# npm cache
+.npm/
+
+# TypeScript generated declaration files
+*.d.ts
