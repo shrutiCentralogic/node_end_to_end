@@ -11,7 +11,7 @@ export class UserRoutes {
     }
 
     configureRoutes() {
-        this.router.get("/addUser", (req: Request, res: Response) => this.userController.addUser(req,res))
+        this.router.post("/addUser", (req: Request, res: Response) => this.userController.addUser(req,res))
     }
 
     getRouter(): Router {
