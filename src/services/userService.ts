@@ -1,34 +1,28 @@
-import { IUser, MongooseUserModel } from "../models/userModel";
+import mongoose from "mongoose";
+import { generateSchemaFromObject } from "../common/customSchema";
+import { User } from "../models/userModel"
+import { UserDBService } from "../databaseService/userDBService";
+
 
 export class UserService {
+    UserDBService: UserDBService
     constructor() {
-
+        this.UserDBService = new UserDBService()
     }
 
-    addUser = async (userData: IUser) => {
+    addUser = async (userData: User) => {
         try {
-            // 🔹 Check if user already exists
-            const existingUser = await MongooseUserModel.findOne({ email: userData.email });
-            if (existingUser) {
-              throw new Error('User with this email already exists');
-            }
-        
-           
-        
-            // 🔹 Create user object
-            const newUser = await new MongooseUserModel({
-              name: userData.name,
-              email: userData.email,
-              password: userData.password, // Store hashed password
-              createdBy: "",
-              createdByName: "",
-            });
-        
-            // 🔹 Save user to MongoDB
-            const savedUser = await newUser.save();
-            return await { success: true, data: savedUser };
-          } catch (error:any) {
-            return { success: false, error: error.message };
-          }
+
+            const newUser = new User(userData)
+            newUser.initialize(true, "User", "Admin", "Admin")
+            let response =await this.UserDBService.addUser(newUser)
+
+            return await response
+
+        } catch (error) {
+            throw error
+        }
     }
+
+
 }
