@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import { ENV } from "./envConfig";
+import { MongoClient } from "mongodb";
+
 
 const connectDB = async (): Promise<void> => {
     try {
@@ -14,6 +16,7 @@ const connectDB = async (): Promise<void> => {
         })
 
         console.log("✅ MongoDB Connected Successfully!");
+
     } catch (error) {
         if (error instanceof Error) {
             console.error("❌ MongoDB Connection Error:", error.message);

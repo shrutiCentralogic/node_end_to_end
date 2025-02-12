@@ -15,7 +15,7 @@ export class UserService {
 
             const newUser = new User(userData)
             newUser.initialize(true, "User", "Admin", "Admin")
-            let response =await this.UserDBService.addUser(newUser)
+            let response = await this.UserDBService.addUser(newUser)
 
             return await response
 
@@ -24,5 +24,25 @@ export class UserService {
         }
     }
 
+    getAllUsers = async () => {
+        try {
+            const users = await this.UserDBService.getAllUsers({})
+            return await { users }
+        }
+        catch (error) {
+            throw error
+        }
+    }
+
+    deleteUserByUId = async (requestObj: any) => {
+        try {
+            const response = await this.UserDBService.deleteUserByUId(requestObj.uId)
+            return response
+        }
+        catch (error) {
+            throw error
+        }
+
+    }
 
 }

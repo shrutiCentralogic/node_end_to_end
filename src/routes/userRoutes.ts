@@ -11,7 +11,10 @@ export class UserRoutes {
     }
 
     configureRoutes() {
+
         this.router.post("/addUser", (req: Request, res: Response) => this.userController.addUser(req,res))
+        this.router.get("/getAllUsers",(req: Request, res: Response) => this.userController.getAllUsers(req,res))
+        this.router.post("/deleteUser",(req: Request, res: Response) => this.userController.deleteUserByUId(req,res))
     }
 
     getRouter(): Router {
